@@ -1,19 +1,28 @@
 import React from "react";
 import Image from "next/image";
 
+import {
+  BsFacebook,
+  BsTwitter,
+  BsInstagram,
+  BsYoutube,
+  BsPinterest,
+} from "react-icons/bs";
+
 const Footer = () => {
   return (
     <div>
-      <div className="bg-secondary h-auto py-2 text-white uppercase text-[0.6rem]">
-        <div className="container mx-auto flex justify-start items-center">
+      <div className="bg-secondary h-auto p-2 text-white uppercase text-[0.6rem]">
+        <div className="container mx-auto flex flex-1 justify-start items-center">
           <div className="mr-8 relative">
             <Image
               src="/images/firstLetterLogo.png"
               alt="Picture of the author"
-              layout="fill"
+              width={62}
+              height={90}
             />
           </div>
-          <div className="flex justify-between items-center w-full">
+          <div className="flex justify-between items-start w-full">
             <ul>
               <li className="py-1">ABOUT MARVEL</li>
               <li className="py-1">help/faqs</li>
@@ -21,20 +30,20 @@ const Footer = () => {
               <li className="py-1">INTERNSHIPS</li>
             </ul>
             <ul>
-              <li>ADVERTISING</li>
-              <li>DISNEY+</li>
-              <li>MARVELHQ.COM</li>
-              <li>INTERNSHIPS</li>
-              <li>REDEEM DIGITAL COMICS</li>
+              <li className="py-1">ADVERTISING</li>
+              <li className="py-1">DISNEY+</li>
+              <li className="py-1">MARVELHQ.COM</li>
+              <li className="py-1">INTERNSHIPS</li>
+              <li className="py-1">REDEEM DIGITAL COMICS</li>
             </ul>
             <div>
-              <h5>follow marvel</h5>
-              <div>
-                <div>facebook</div>
-                <div>TWITTER</div>
-                <div>INSTAGRAM</div>
-                <div>youtube</div>
-                <div>PINTEREST</div>
+              <h5 className="mb-2 text-center">follow marvel</h5>
+              <div className="flex flex-wrap flex-row gap-4 w-full">
+                <BsFacebook className="text-sm" />
+                <BsTwitter className="text-sm" />
+                <BsInstagram className="text-sm" />
+                <BsYoutube className="text-sm" />
+                <BsPinterest className="text-sm" />
               </div>
             </div>
           </div>
