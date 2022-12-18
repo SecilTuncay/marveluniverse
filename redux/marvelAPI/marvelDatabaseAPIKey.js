@@ -1,1 +1,2 @@
-export const APIKey = "714c13a634f5bb6a268870128fd1176b";
+export const PUBLIC_KEY = "714c13a634f5bb6a268870128fd1176b";
+export const PRIVATE_KEY = "651ccb8278174fb7f298d9f006b16ac690bebd81";

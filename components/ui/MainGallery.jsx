@@ -3,10 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   fetchAsyncCharacters,
   getAllCharacters,
-} from "../redux/marvel/marvelSlice";
-import ListItem from "./ListItem";
+} from "../../redux/marvel/marvelSlice";
 
-const ListingPage = () => {
+import ListItem from "../ListItem";
+import GalleryItem from "./GalleryItem";
+
+const MainGallery = () => {
   const allCharacters = useSelector(getAllCharacters);
   const dispatch = useDispatch();
 
@@ -14,18 +16,16 @@ const ListingPage = () => {
   useEffect(() => {
     dispatch(fetchAsyncCharacters());
   }, [dispatch]);
-
   return (
-    <div className="container mx-auto my-5 bg-white border-purple-800">
-      <p>listing page</p>
-      <div className="flex flex-row flex-wrap justify-start">
+    <div className="container mx-auto">
+      <div className="overflow-x-auto h-[150px] w-full border-primary border-2 flex">
         {allCharacters &&
           allCharacters.map((character, index) => {
-            return <ListItem key={index} characterData={character} />;
+            return <GalleryItem key={index} characterData={character} />;
           })}
       </div>
     </div>
   );
 };
 
-export default ListingPage;
+export default MainGallery;
