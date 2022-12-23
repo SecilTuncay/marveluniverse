@@ -1,5 +1,5 @@
-import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Header = () => {
   return (
@@ -15,12 +15,16 @@ const Header = () => {
         </div>
         <nav className="h-full">
           <ul className="flex flex-row gap-2 text-white text-xs">
-            <li className="px-[5px] py-[5px] hover:text-primary cursor-pointer">
-              Characters
-            </li>
-            <li className="px-[5px] py-[5px] hover:text-primary cursor-pointer">
-              Comics
-            </li>
+            <Link href="/characters">
+              <p className="px-[5px] py-[5px] hover:text-primary cursor-pointer">
+                Characters
+              </p>
+            </Link>
+            <Link href="/characters">
+              <p className="px-[5px] py-[5px] hover:text-primary cursor-pointer">
+                Comics
+              </p>
+            </Link>
           </ul>
         </nav>
       </div>

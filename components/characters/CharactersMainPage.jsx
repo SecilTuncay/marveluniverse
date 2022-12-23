@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchAsyncCharacters,
   getAllCharacters,
-} from "../redux/marvel/marvelSlice";
-import ListItem from "./ListItem";
+} from "../../redux/marvel/marvelSlice";
+import CharactersListItem from "./CharactersListItem";
 
-const ListingPage = () => {
+const CharactersMainPage = () => {
   const allCharacters = useSelector(getAllCharacters);
   const dispatch = useDispatch();
 
@@ -21,11 +21,11 @@ const ListingPage = () => {
       <div className="flex flex-row flex-wrap justify-start">
         {allCharacters &&
           allCharacters.map((character, index) => {
-            return <ListItem key={index} characterData={character} />;
+            return <CharactersListItem key={index} characterData={character} />;
           })}
       </div>
     </div>
   );
 };
 
-export default ListingPage;
+export default CharactersMainPage;

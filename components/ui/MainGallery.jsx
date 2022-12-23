@@ -5,7 +5,6 @@ import {
   getAllCharacters,
 } from "../../redux/marvel/marvelSlice";
 
-import ListItem from "../ListItem";
 import GalleryItem from "./GalleryItem";
 
 const MainGallery = () => {
