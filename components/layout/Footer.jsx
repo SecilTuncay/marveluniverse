@@ -11,9 +11,9 @@ import {
 
 const Footer = () => {
   return (
-    <div>
-      <div className="bg-secondary h-auto p-2 text-white uppercase text-[0.6rem]">
-        <div className="container mx-auto flex flex-1 justify-start items-center">
+    <div className="fixed bottom-0 w-full h-32">
+      <div className="bg-secondary h-full p-6 text-white uppercase text-[0.6rem] flex items-center">
+        <div className="container mx-auto flex flex-1 justify-start items-start ">
           <div className="mr-8 relative">
             <Image
               src="/images/firstLetterLogo.png"
@@ -28,6 +28,13 @@ const Footer = () => {
               <li className="py-1">help/faqs</li>
               <li className="py-1">careers</li>
               <li className="py-1">INTERNSHIPS</li>
+            </ul>
+            <ul>
+              <li className="py-1">ADVERTISING</li>
+              <li className="py-1">DISNEY+</li>
+              <li className="py-1">MARVELHQ.COM</li>
+              <li className="py-1">INTERNSHIPS</li>
+              <li className="py-1">REDEEM DIGITAL COMICS</li>
             </ul>
             <ul>
               <li className="py-1">ADVERTISING</li>

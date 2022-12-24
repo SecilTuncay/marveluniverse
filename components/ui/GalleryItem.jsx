@@ -9,32 +9,18 @@ const GalleryItem = (props) => {
 
   const imagePath = thumbnail.path + "." + thumbnail.extension;
   return (
-    <div key={id} className="shadow-lg h-[25rem] w-[15rem] bg-secondary m-2">
-      <div className="relative w-full h-2/3 border-b-4 border-primary">
-        <Image
-          src={imagePath}
-          alt={name}
-          object-fit="cover"
-          width={50}
-          height={60}
-        />
+    <div
+      key={id}
+      className="shadow-[0_7px_7px_0_rgba(117,112,112,0.65)] w-[12rem] m-2 flex flex-col overflow-hidden relative cornered bg-secondary text-white"
+    >
+      <div className="relative w-full h-2/3 border-b-4 border-primary ">
+        <Image src={imagePath} alt={name} layout="fill" objectFit="cover" />
       </div>
-      <div>
-        <div className="px-6 py-4 text-white">
-          <div className="font-bold text-[1rem] mb-2">{name}</div>
-          <p className="text-xs">{description}</p>
+      <div className="mt-3 h-1/3">
+        <div className="text-[1rem] text-lg font-extrabold p-2 h-[5rem]">
+          {name}
         </div>
-        <div className="px-6 pt-4 pb-2">
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-            {comics.available}
-          </span>
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-            {series.available}
-          </span>
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-            {stories.available}
-          </span>
-        </div>
+        <div className="text-[1rem] text-xs p-2">2022</div>
       </div>
     </div>
   );

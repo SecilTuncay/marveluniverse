@@ -8,11 +8,13 @@ module.exports = {
       colors: {
         primary: "#ec1d24",
         secondary: "#151515",
+        borderGray: "#bdc2cb",
       },
       fontFamily: {
         lato: ["Lato", "sans-serif"],
+        robotoCondensed: ["Roboto Condensed", "sans-serif"],
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")],
 };

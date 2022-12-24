@@ -16,15 +16,18 @@ const MainGallery = () => {
     dispatch(fetchAsyncCharacters());
   }, [dispatch]);
   return (
-    <div className="container mx-auto">
-      <div className="overflow-x-auto h-[150px] w-full border-primary border-2 flex">
-        {allCharacters &&
-          allCharacters.map((character, index) => {
-            return <GalleryItem key={index} characterData={character} />;
-          })}
+    <div className="container mx-auto my-14 ">
+      <div className="shadow-2xl scrollbar-thin  scrollbar-thumb-primary scrollbar-track-white h-[25rem] overflow-y-scroll flex items-center px-2">
+        <div className="h-[22rem] flex py-1">
+          {allCharacters &&
+            allCharacters.map((character, index) => {
+              return <GalleryItem key={index} characterData={character} />;
+            })}
+        </div>
       </div>
     </div>
   );
 };
 
 export default MainGallery;
+/* rounded-[0.75rem] border-l-[0.5rem] border-t-[0.5rem] border-gray-800 */

@@ -3,31 +3,29 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <div className="bg-secondary h-auto p-2">
-      <div className="container mx-auto flex justify-start items-center">
-        <div className="mr-5 relative">
-          <Image
-            src="/images/logo.png"
-            alt="Picture of the author"
-            width={102}
-            height={40}
-          />
-        </div>
-        <nav className="h-full">
-          <ul className="flex flex-row gap-2 text-white text-xs">
-            <Link href="/characters">
-              <p className="px-[5px] py-[5px] hover:text-primary cursor-pointer">
-                Characters
-              </p>
-            </Link>
-            <Link href="/characters">
-              <p className="px-[5px] py-[5px] hover:text-primary cursor-pointer">
-                Comics
-              </p>
-            </Link>
-          </ul>
-        </nav>
+    <div className="bg-secondary h-auto flex flex-col justify-center items-center w-full ">
+      <div className="relative flex  justify-center border-borderGray border-b-[0.08rem] w-full">
+        <Image
+          src="/images/logo.png"
+          alt="Picture of the author"
+          width={122}
+          height={47}
+        />
       </div>
+      <nav className="h-full">
+        <ul className="flex flex-row text-white text-sm font-bold">
+          <Link href="/characters">
+            <p className="px-[5px] py-[5px] hover:text-primary cursor-pointer border-borderGray border-l-[0.08rem] border-r-[0.08rem]">
+              CHARACTERS
+            </p>
+          </Link>
+          <Link href="/characters">
+            <p className="px-[5px] py-[5px] hover:text-primary cursor-pointer  border-borderGray border-r-[0.08rem]">
+              COMICS
+            </p>
+          </Link>
+        </ul>
+      </nav>
     </div>
   );
 };

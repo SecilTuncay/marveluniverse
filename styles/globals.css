@@ -6,9 +6,16 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Lato", sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
 }
 
 * {
   box-sizing: border-box;
+}
+
+.cornered {
+  position: relative;
+  overflow: hidden;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 95%, 91% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 95%, 91% 100%, 0 100%);
 }
