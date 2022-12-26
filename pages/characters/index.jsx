@@ -2,7 +2,7 @@ import CharactersMainPage from "../../components/characters/CharactersMainPage";
 
 const Characters = () => {
   return (
-    <div>
+    <div className="mb-32">
       <CharactersMainPage />
     </div>
   );

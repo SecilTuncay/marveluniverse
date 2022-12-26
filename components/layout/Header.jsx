@@ -5,12 +5,14 @@ const Header = () => {
   return (
     <div className="bg-secondary h-auto flex flex-col justify-center items-center w-full ">
       <div className="relative flex  justify-center border-borderGray border-b-[0.08rem] w-full">
-        <Image
-          src="/images/logo.png"
-          alt="Picture of the author"
-          width={122}
-          height={47}
-        />
+        <Link href="/">
+          <Image
+            src="/images/logo.png"
+            alt="Picture of the author"
+            width={122}
+            height={47}
+          />
+        </Link>
       </div>
       <nav className="h-full">
         <ul className="flex flex-row text-white text-sm font-bold">

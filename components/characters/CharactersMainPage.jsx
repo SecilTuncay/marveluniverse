@@ -16,8 +16,39 @@ const CharactersMainPage = () => {
   }, [dispatch]);
 
   return (
-    <div className="container mx-auto my-5 bg-white border-purple-800">
-      <p>listing page</p>
+    <div className="container mx-auto my-5">
+      <h2
+        className="relative 
+        font-bold
+        text-[1.30rem]
+        leading-[1.75rem] 
+        mt-6 mb-4 pl-2
+        before:content-[''] 
+        before:bg-primary 
+        before:block 
+        before:absolute 
+        before:h-[2px] 
+        before:w-[20px] 
+        before:left-[53px] 
+        before:top-[3px] 
+        before:-rotate-45 
+        before:skew-x-[45deg] 
+        before:origin-bottom-left
+        
+        after:content-[''] 
+        after:bg-primary 
+        after:block 
+        after:absolute 
+        after:h-[2px] 
+        after:w-[20px] 
+        after:left-[16px] 
+        after:top-[23px] 
+        after:-rotate-45 
+        after:skew-x-[45deg] 
+        after:origin-top-right"
+      >
+        CHARACTERS LIST
+      </h2>
       <div className="flex flex-row flex-wrap justify-start">
         {allCharacters &&
           allCharacters.map((character, index) => {

@@ -5,13 +5,13 @@ import Layout from "../components/ui/Layout";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <>
+    <div>
       <Layout>
         <Provider store={store}>
           <Component {...pageProps} />;
         </Provider>
       </Layout>
-    </>
+    </div>
   );
 }
 

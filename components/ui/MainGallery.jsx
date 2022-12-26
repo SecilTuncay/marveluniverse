@@ -16,8 +16,18 @@ const MainGallery = () => {
     dispatch(fetchAsyncCharacters());
   }, [dispatch]);
   return (
-    <div className="container mx-auto my-14 ">
-      <div className="shadow-2xl scrollbar-thin  scrollbar-thumb-primary scrollbar-track-white h-[25rem] overflow-y-scroll flex items-center px-2">
+    <div className="container mx-auto mt-[9rem]">
+      <div
+        className="bg-gray-300
+        shadow-2xl 
+        scrollbar-thin  
+        scrollbar-thumb-primary 
+        scrollbar-track-gray-300
+        h-[25rem] 
+        overflow-y-scroll 
+        flex items-center 
+        px-2"
+      >
         <div className="h-[22rem] flex py-1">
           {allCharacters &&
             allCharacters.map((character, index) => {

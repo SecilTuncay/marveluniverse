@@ -15,10 +15,16 @@ const CharactersListItem = (props) => {
       <Link href={`/characters/${id}`}>
         <div
           key={id}
-          className="max-w-sm shadow-lg h-[25rem] w-[15rem] bg-secondary m-2 relative overflow-hidden cornered"
+          className="max-w-sm shadow-lg h-[25rem] w-[15rem] bg-secondary hover:bg-primary transition-all m-2 relative overflow-hidden cornered"
         >
-          <div className="relative w-full h-2/3 border-b-4 border-primary">
-            <Image src={imagePath} alt={name} fill object-fit="contain" />
+          <div className="relative w-full h-2/3 border-b-4 border-primary overflow-hidden">
+            <Image
+              src={imagePath}
+              alt={name}
+              fill
+              object-fit="cover"
+              className="hover:scale-125 transition-all"
+            />
           </div>
           <div>
             <div className="px-6 py-4 text-white">
