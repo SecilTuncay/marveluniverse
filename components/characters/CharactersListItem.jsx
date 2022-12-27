@@ -15,7 +15,7 @@ const CharactersListItem = (props) => {
       <Link href={`/characters/${id}`}>
         <div
           key={id}
-          className="max-w-sm shadow-lg h-[25rem] w-[15rem] bg-secondary hover:bg-primary transition-all m-2 relative overflow-hidden cornered"
+          className="shadow-lg h-[25rem] w-[15rem] bg-secondary hover:bg-primary transition-all m-2 relative overflow-hidden cornered"
         >
           <div className="relative w-full h-2/3 border-b-4 border-primary overflow-hidden">
             <Image

@@ -5,8 +5,9 @@ import {
   getSelectedCharacter,
 } from "../../redux/marvel/marvelSlice";
 import Image from "next/image";
-import { GoLinkExternal } from "react-icons/go";
+import { GoLinkExternal, GoTriangleLeft } from "react-icons/go";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import {
   PUBLIC_KEY,
   PRIVATE_KEY,
@@ -18,6 +19,7 @@ const ts = Number(Date.now());
 const marvelHash = md5(ts + PRIVATE_KEY + PUBLIC_KEY);
 
 const CharactersDetailPage = ({ id }) => {
+  const router = useRouter();
   const currentData = useSelector(getSelectedCharacter);
   const dispatch = useDispatch();
 
@@ -39,11 +41,20 @@ const CharactersDetailPage = ({ id }) => {
   useEffect(() => {
     dispatch(fetchAsyncCharacter({ id }));
   }, [dispatch, id]);
-  debugger;
+
   return (
     <>
-      {currentData[0] && (
-        <div className="container mx-auto my-10">
+      <div className="container mx-auto my-10">
+        <button
+          onClick={() => {
+            router.back();
+          }}
+          class="hover:text-primary font-bold leading-6 flex items-center mb-4"
+        >
+          <GoTriangleLeft className="text-2xl inline-block" />
+          <span>BACK</span>
+        </button>
+        {currentData[0] && (
           <div className="flex flex-row gap-5 items-center">
             <div className="relative w-[25rem] h-[30rem] rounded">
               <Image
@@ -165,8 +176,8 @@ const CharactersDetailPage = ({ id }) => {
               </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </>
   );
 };

@@ -11,7 +11,7 @@ export const fetchAsyncCharacters = createAsyncThunk(
   "movies/fetchAsyncCharacters",
   async () => {
     const response = await marvelDatabaseAPI.get(
-      `public/characters?ts=${ts}&orderBy=name&limit=30&apikey=${PUBLIC_KEY}&hash=${marvelHash}`,
+      `public/characters?ts=${ts}&orderBy=name&limit=20&apikey=${PUBLIC_KEY}&hash=${marvelHash}`,
       { crossdomain: true }
     );
     return response.data;
