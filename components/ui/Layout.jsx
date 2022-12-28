@@ -3,9 +3,11 @@ import Footer from "../layout/Footer";
 
 const Layout = ({ children }) => {
   return (
-    <div className="h-full">
+    <div id="layout" className="relative min-h-full">
       <Header />
-      {children}
+      <div id="mainBody" className="md:pb-[9rem] pb-16 w-full">
+        {children}
+      </div>
       <Footer />
     </div>
   );

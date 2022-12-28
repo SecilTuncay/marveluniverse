@@ -11,6 +11,7 @@ const GalleryItem = (props) => {
   return (
     <div
       key={id}
+      id="galleryItem"
       className="shadow-[0_7px_7px_0_rgba(117,112,112,0.65)] w-[12rem] m-2 flex flex-col overflow-hidden relative cornered bg-secondary text-white"
     >
       <div className="relative w-full h-2/3 border-b-4 border-primary ">

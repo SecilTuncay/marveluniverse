@@ -17,13 +17,15 @@ const CharactersMainPage = () => {
   }, [dispatch]);
 
   return (
-    <div className="container mx-auto my-5">
-      <h2
-        className="relative 
+    <div id="charactersMainPage" className="container mx-auto my-1 md:my-5">
+      <div className="flex justify-center">
+        <h2
+          className="relative 
         font-bold
-        text-[1.30rem]
+        md:text-[1.30rem] text-[1rem]
         leading-[1.75rem] 
-        mt-6 mb-4 pl-2
+        mt-4 mb-4
+
         before:content-[''] 
         before:bg-primary 
         before:block 
@@ -43,14 +45,15 @@ const CharactersMainPage = () => {
         after:h-[2px] 
         after:w-[20px] 
         after:left-[16px] 
-        after:top-[23px] 
+        after:top-[28px] 
         after:-rotate-45 
         after:skew-x-[45deg] 
         after:origin-top-right"
-      >
-        CHARACTERS LIST
-      </h2>
-      <div className="flex flex-row flex-wrap justify-start">
+        >
+          CHARACTERS LIST
+        </h2>
+      </div>
+      <div className="flex flex-row flex-wrap justify-center">
         {allCharacters &&
           allCharacters.map((character, index) => {
             return <CharactersListItem key={index} characterData={character} />;

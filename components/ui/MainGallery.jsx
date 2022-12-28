@@ -16,7 +16,7 @@ const MainGallery = () => {
     dispatch(fetchAsyncCharacters());
   }, [dispatch]);
   return (
-    <div className="container mx-auto mt-[9rem]">
+    <div id="mainGallery" className="container mx-auto mt-2">
       <div
         className="bg-gray-300
         shadow-2xl 

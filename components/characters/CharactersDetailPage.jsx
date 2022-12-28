@@ -44,19 +44,19 @@ const CharactersDetailPage = ({ id }) => {
 
   return (
     <>
-      <div className="container mx-auto my-10">
+      <div className="container mx-auto my-5" id="charactersDetailPage">
         <button
           onClick={() => {
             router.back();
           }}
-          class="hover:text-primary font-bold leading-6 flex items-center mb-4"
+          class="hover:text-primary font-bold leading-6 flex items-center"
         >
           <GoTriangleLeft className="text-2xl inline-block" />
           <span>BACK</span>
         </button>
         {currentData[0] && (
-          <div className="flex flex-row gap-5 items-center">
-            <div className="relative w-[25rem] h-[30rem] rounded">
+          <div className="flex lg:flex-row flex-col mt-3 gap-5 items-center ">
+            <div className="relative w-full lg:w-[25rem] h-[30rem] rounded">
               <Image
                 src={thumbnail.path + "." + thumbnail.extension}
                 alt={name}
@@ -66,51 +66,13 @@ const CharactersDetailPage = ({ id }) => {
               />
             </div>
             <div className="w-full p-5">
-              <h3 className="font-extrabold text-3xl mb-5 flex">
-                <div>
-                  <span
-                    className="relative 
-                  font-bold
-                  leading-[1.75rem] 
-                  mt-6 mb-6 pl-2
-                  before:content-[''] 
-                  before:bg-primary 
-                  before:block 
-                  before:absolute 
-                  before:h-[2px] 
-                  before:w-[20px] 
-                  before:left-[53px] 
-                  before:top-[3px] 
-                  before:-rotate-45 
-                  before:skew-x-[45deg] 
-                  before:origin-bottom-left
-                  
-                  after:content-[''] 
-                  after:bg-primary 
-                  after:block 
-                  after:absolute 
-                  after:h-[2px] 
-                  after:w-[20px] 
-                  after:left-[12px] 
-                  after:top-[35px] 
-                  after:-rotate-45 
-                  after:skew-x-[45deg] 
-                  after:origin-top-right"
-                  >
-                    {name}
-                  </span>
-                  /{" "}
-                  <span className="mr-5">
-                    {new Date(modified).getFullYear()}
-                  </span>{" "}
-                </div>
-                <div>
-                  <Link href={urls[0].url} target="_blank">
-                    <GoLinkExternal className="text-green-700" />
-                  </Link>
-                </div>
-              </h3>
-              <div className="flex justify-start items-center gap-4 my-6">
+              <div className="flex mb-3 font-extrabold text-3xl leading-[1.75rem] gap-1">
+                <p>{name}</p>/<p>{new Date(modified).getFullYear()}</p>
+                <Link href={urls[0].url} target="_blank">
+                  <GoLinkExternal className="text-green-700" />
+                </Link>
+              </div>
+              <div className="flex justify-start items-center gap-4 my-4">
                 <div className="text-white flex flex-col items-center">
                   <p className="mb-1 text-secondary">Series</p>
                   <p className="rounded-full bg-secondary w-12 h-12 flex justify-center items-center">
@@ -150,14 +112,12 @@ const CharactersDetailPage = ({ id }) => {
                   : `${description}`}
               </div>
               <div
-                className="
-                  shadow-2xl 
+                className="border-primary border-[1px]
                   scrollbar-thin  
                   scrollbar-thumb-primary 
                   scrollbar-track-gray-300
                   h-[15rem] 
                   overflow-y-scroll 
-                 
                   px-2"
               >
                 <div className="h-[18rem]">
@@ -183,42 +143,3 @@ const CharactersDetailPage = ({ id }) => {
 };
 
 export default CharactersDetailPage;
-
-{
-  /*   <div className="max-w-sm w-full lg:max-w-full lg:flex">
-        <div
-          className="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
-          style="background-image: url('/img/card-left.jpg')"
-          title="Woman holding a mug"
-        ></div>
-        <div className="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-          <div className="mb-8">
-            <p className="text-sm text-gray-600 flex items-center">
-              <svg
-                className="fill-current text-gray-500 w-3 h-3 mr-2"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-              >
-                <path d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z" />
-              </svg>
-              Members only
-            </p>
-            <div className="text-gray-900 font-bold text-xl mb-2">
-              Can coffee make you a better developer?
-            </div>
-            <p className="text-gray-700 text-base">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Voluptatibus quia, nulla! Maiores et perferendis eaque,
-              exercitationem praesentium nihil.
-            </p>
-          </div>
-          <div className="flex items-center">
-            <div className="w-10 h-10 rounded-full mr-4 relative"></div>
-            <div className="text-sm">
-              <p className="text-gray-900 leading-none">Jonathan Reinink</p>
-              <p className="text-gray-600">Aug 18</p>
-            </div>
-          </div>
-        </div>
-      </div> */
-}

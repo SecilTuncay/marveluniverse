@@ -9,16 +9,15 @@ import Home from "./home/index";
 
 export default function Index() {
   return (
-    <div>
+    <>
       <Head>
         <title>My Marvel Universe</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
       </Head>
-
       <Home />
       <MainGallery />
-    </div>
+    </>
   );
 }
