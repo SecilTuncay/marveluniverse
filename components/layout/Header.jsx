@@ -24,7 +24,7 @@ const Header = () => {
               CHARACTERS
             </p>
           </Link>
-          <Link href="/characters">
+          <Link href="/comics">
             <p className="px-[5px] py-[5px] hover:text-primary cursor-pointer  border-borderGray border-r-[0.08rem]">
               COMICS
             </p>

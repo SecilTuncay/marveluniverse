@@ -8,7 +8,7 @@ const ts = Number(Date.now());
 const marvelHash = md5(ts + PRIVATE_KEY + PUBLIC_KEY);
 
 export const fetchAsyncCharacters = createAsyncThunk(
-  "movies/fetchAsyncCharacters",
+  "marvel/fetchAsyncCharacters",
   async () => {
     const response = await marvelDatabaseAPI.get(
       `public/characters?ts=${ts}&orderBy=name&limit=20&apikey=${PUBLIC_KEY}&hash=${marvelHash}`,
@@ -18,7 +18,7 @@ export const fetchAsyncCharacters = createAsyncThunk(
   }
 );
 export const fetchAsyncCharacter = createAsyncThunk(
-  "movies/fetchAsyncCharacter",
+  "marvel/fetchAsyncCharacter",
   async ({ id }) => {
     const response = await marvelDatabaseAPI.get(
       `public/characters/${id}?ts=${ts}&apikey=${PUBLIC_KEY}&hash=${marvelHash}`,
@@ -28,10 +28,20 @@ export const fetchAsyncCharacter = createAsyncThunk(
   }
 );
 export const fetchAsyncComics = createAsyncThunk(
-  "movies/fetchAsyncComics",
+  "marvel/fetchAsyncComics",
   async () => {
     const response = await marvelDatabaseAPI.get(
-      `public/series?ts=${ts}&limit=10&apikey=${PUBLIC_KEY}&hash=${marvelHash}`,
+      `public/comics?ts=${ts}&apikey=${PUBLIC_KEY}&hash=${marvelHash}`,
+      { crossdomain: true }
+    );
+    return response.data;
+  }
+);
+export const fetchAsyncComic = createAsyncThunk(
+  "marvel/fetchAsyncComic",
+  async ({ id }) => {
+    const response = await marvelDatabaseAPI.get(
+      `public/comics/${id}?ts=${ts}&apikey=${PUBLIC_KEY}&hash=${marvelHash}`,
       { crossdomain: true }
     );
     return response.data;
@@ -42,6 +52,7 @@ const initialState = {
   characters: [],
   selectedCharacter: {},
   comics: [],
+  selectedComic: {},
 };
 const marvelSlice = createSlice({
   name: "marvel",
@@ -58,17 +69,6 @@ const marvelSlice = createSlice({
     [fetchAsyncCharacters.rejected]: () => {
       console.log("Rejected!");
     },
-    /*Fetch Characters start*/
-    [fetchAsyncComics.pending]: () => {
-      console.log("Pending");
-    },
-    [fetchAsyncComics.fulfilled]: (state, { payload }) => {
-      return { ...state, comics: payload.data.results };
-    },
-    [fetchAsyncComics.rejected]: () => {
-      console.log("Rejected!");
-    },
-    /*end*/
     /*Fetch Character with ID start*/
     [fetchAsyncCharacter.pending]: () => {
       console.log("Pending");
@@ -80,18 +80,27 @@ const marvelSlice = createSlice({
       console.log("Rejected!");
     },
     /*end*/
-
-    /*Fetch All Movies start*/
-    /*[fetchAsyncMovies.pending]: (state) => {
+    /*Fetch Comics start*/
+    [fetchAsyncComics.pending]: () => {
       console.log("Pending");
-      return { ...state, isLoading: true };
     },
-    [fetchAsyncMovies.fulfilled]: (state, { payload }) => {
-      return { ...state, movies: payload, isLoading: false };
+    [fetchAsyncComics.fulfilled]: (state, { payload }) => {
+      return { ...state, comics: payload.data.results };
     },
-    [fetchAsyncMovies.rejected]: () => {
+    [fetchAsyncComics.rejected]: () => {
       console.log("Rejected!");
-    },*/
+    },
+    /*end*/
+    /*Fetch Comics with ID start*/
+    [fetchAsyncComic.pending]: () => {
+      console.log("Pending");
+    },
+    [fetchAsyncComic.fulfilled]: (state, { payload }) => {
+      return { ...state, selectedComic: payload.data.results };
+    },
+    [fetchAsyncComic.rejected]: () => {
+      console.log("Rejected!");
+    },
     /*end*/
   },
 });
@@ -101,5 +110,6 @@ export const {} = marvelSlice.actions;
 export const getAllCharacters = (state) => state.marvel.characters;
 export const getSelectedCharacter = (state) => state.marvel.selectedCharacter;
 export const getAllComics = (state) => state.marvel.comics;
+export const getSelectedComic = (state) => state.marvel.selectedComic;
 
 export default marvelSlice.reducer;
