@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchAsyncCharacter,
@@ -8,22 +8,11 @@ import Image from "next/image";
 import { GoLinkExternal, GoTriangleLeft } from "react-icons/go";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import {
-  PUBLIC_KEY,
-  PRIVATE_KEY,
-} from "../../redux/marvelAPI/marvelDatabaseAPIKey";
-import md5 from "md5";
 
-const ts = Number(Date.now());
-
-const marvelHash = md5(ts + PRIVATE_KEY + PUBLIC_KEY);
-
-const CharactersDetailPage = ({ id }) => {
+const CharactersDetailPage = ({ charactersID }) => {
   const router = useRouter();
-  const currentData = useSelector(getSelectedCharacter);
+  const currentCharacterData = useSelector(getSelectedCharacter);
   const dispatch = useDispatch();
-
-  console.log(currentData[0]);
 
   const {
     name,
@@ -36,11 +25,18 @@ const CharactersDetailPage = ({ id }) => {
     urls,
     resourceURI,
     modified,
-  } = { ...(currentData[0] || {}) };
+  } = { ...(currentCharacterData[0] || {}) };
 
   useEffect(() => {
-    dispatch(fetchAsyncCharacter({ id }));
-  }, [dispatch, id]);
+    dispatch(fetchAsyncCharacter({ charactersID }));
+  }, [dispatch, charactersID]);
+
+  const charactersItemsInfo = series && [
+    { id: 0, title: "Series", number: series.available },
+    { id: 1, title: "Comics", number: comics.available },
+    { id: 2, title: "Stories", number: stories.available },
+    { id: 3, title: "Events", number: events.available },
+  ];
 
   return (
     <>
@@ -49,13 +45,13 @@ const CharactersDetailPage = ({ id }) => {
           onClick={() => {
             router.back();
           }}
-          class="hover:text-primary font-bold leading-6 flex items-center"
+          className="hover:text-primary font-bold leading-6 flex items-center"
         >
           <GoTriangleLeft className="text-2xl inline-block" />
           <span>BACK</span>
         </button>
-        {currentData[0] && (
-          <div className="flex lg:flex-row flex-col mt-3 gap-5 items-center ">
+        {currentCharacterData[0] && (
+          <div className="flex lg:flex-row flex-col mt-6 gap-5">
             <div className="relative w-full lg:w-[25rem] h-[30rem] rounded">
               <Image
                 src={thumbnail.path + "." + thumbnail.extension}
@@ -65,46 +61,30 @@ const CharactersDetailPage = ({ id }) => {
                 className="rounded-3xl shadow-2xl"
               />
             </div>
-            <div className="w-full p-5">
+            <div className="w-full p-5 h-[30rem]">
               <div className="flex mb-3 font-extrabold text-3xl leading-[1.75rem] gap-1">
                 <p>{name}</p>/<p>{new Date(modified).getFullYear()}</p>
                 <Link href={urls[0].url} target="_blank">
                   <GoLinkExternal className="text-green-700" />
                 </Link>
               </div>
+
               <div className="flex justify-start items-center gap-4 my-4">
-                <div className="text-white flex flex-col items-center">
-                  <p className="mb-1 text-secondary">Series</p>
-                  <p className="rounded-full bg-secondary w-12 h-12 flex justify-center items-center">
-                    <span className="border-green-400 border-2 w-9 h-9 rounded-full block leading-8 text-center text-xl">
-                      {series.available}
-                    </span>
-                  </p>
-                </div>
-                <div className="text-white flex flex-col items-center">
-                  <p className="mb-1 text-secondary">Comics</p>
-                  <p className="rounded-full bg-secondary w-12 h-12 flex justify-center items-center">
-                    <span className="border-green-400 border-2 w-9 h-9 rounded-full block leading-8 text-center text-xl">
-                      {comics.available}
-                    </span>
-                  </p>
-                </div>
-                <div className="text-white flex flex-col items-center">
-                  <p className="mb-1 text-secondary">Stories</p>
-                  <p className="rounded-full bg-secondary w-12 h-12 flex justify-center items-center">
-                    <span className="border-green-400 border-2 w-9 h-9 rounded-full block leading-8 text-center text-xl">
-                      {stories.available}
-                    </span>
-                  </p>
-                </div>
-                <div className="text-white flex flex-col items-center">
-                  <p className="mb-1 text-secondary">Events</p>
-                  <p className="rounded-full bg-secondary w-12 h-12 flex justify-center items-center">
-                    <span className="border-green-400 border-2 w-9 h-9 rounded-full block leading-8 text-center text-xl">
-                      {events.available}
-                    </span>
-                  </p>
-                </div>
+                {charactersItemsInfo.map((item) => {
+                  return (
+                    <div
+                      key={item.id}
+                      className="text-white flex flex-col items-center"
+                    >
+                      <p className="mb-1 text-secondary">{item.title}</p>
+                      <p className="rounded-full bg-secondary w-12 h-12 flex justify-center items-center">
+                        <span className="border-green-400 border-2 w-9 h-9 rounded-full block leading-8 text-center text-xl">
+                          {item.number}
+                        </span>
+                      </p>
+                    </div>
+                  );
+                })}
               </div>
               <div className="text-xl font-semibold mb-5">
                 {description === ""
@@ -112,8 +92,7 @@ const CharactersDetailPage = ({ id }) => {
                   : `${description}`}
               </div>
               <div
-                className="border-primary border-[1px]
-                  scrollbar-thin  
+                className="scrollbar-thin  
                   scrollbar-thumb-primary 
                   scrollbar-track-gray-300
                   h-[15rem] 

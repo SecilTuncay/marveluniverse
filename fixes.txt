@@ -1,0 +1,5 @@
+- comics characters links
+- search bar
+- carousel responsive
+- carousel links
+- comics responsive scroll

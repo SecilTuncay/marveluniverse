@@ -4,10 +4,10 @@ import ComicsDetailPage from "../../components/comics/ComicsDetailPage";
 
 const ComicsDetails = () => {
   const router = useRouter();
-  const { id } = router.query;
+  const { comicsID } = router.query;
   return (
     <>
-      <ComicsDetailPage id={id} />
+      <ComicsDetailPage comicsID={comicsID} />
     </>
   );
 };

@@ -4,10 +4,10 @@ import CharactersDetailPage from "../../components/characters/CharactersDetailPa
 
 const CharactersDetail = () => {
   const router = useRouter();
-  const { id } = router.query;
+  const { charactersID } = router.query;
   return (
     <>
-      <CharactersDetailPage id={id} />
+      <CharactersDetailPage charactersID={charactersID} />
     </>
   );
 };

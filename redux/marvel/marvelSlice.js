@@ -19,9 +19,9 @@ export const fetchAsyncCharacters = createAsyncThunk(
 );
 export const fetchAsyncCharacter = createAsyncThunk(
   "marvel/fetchAsyncCharacter",
-  async ({ id }) => {
+  async ({ charactersID }) => {
     const response = await marvelDatabaseAPI.get(
-      `public/characters/${id}?ts=${ts}&apikey=${PUBLIC_KEY}&hash=${marvelHash}`,
+      `public/characters/${charactersID}?ts=${ts}&apikey=${PUBLIC_KEY}&hash=${marvelHash}`,
       { crossdomain: true }
     );
     return response.data;
@@ -39,9 +39,9 @@ export const fetchAsyncComics = createAsyncThunk(
 );
 export const fetchAsyncComic = createAsyncThunk(
   "marvel/fetchAsyncComic",
-  async ({ id }) => {
+  async ({ comicsID }) => {
     const response = await marvelDatabaseAPI.get(
-      `public/comics/${id}?ts=${ts}&apikey=${PUBLIC_KEY}&hash=${marvelHash}`,
+      `public/comics/${comicsID}?ts=${ts}&apikey=${PUBLIC_KEY}&hash=${marvelHash}`,
       { crossdomain: true }
     );
     return response.data;
