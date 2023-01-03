@@ -47,6 +47,7 @@ const ComicsDetailPage = ({ comicsID }) => {
           <GoTriangleLeft className="text-2xl inline-block" />
           <span>BACK</span>
         </button>
+
         {currentComicData[0] && (
           <div className="flex lg:flex-row flex-col mt-6 gap-5">
             <div className="relative w-full lg:w-[25rem] h-[30rem] rounded">

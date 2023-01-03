@@ -1,24 +1,23 @@
 import React, { useEffect } from "react";
-
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchAsyncCharacters,
   getAllCharacters,
 } from "../../redux/marvel/marvelSlice";
 import CharactersListItem from "./CharactersListItem";
+import SearchBar from "../ui/SearchBar";
 
 const CharactersMainPage = () => {
   const allCharacters = useSelector(getAllCharacters);
   const dispatch = useDispatch();
 
-  console.log(allCharacters);
   useEffect(() => {
     dispatch(fetchAsyncCharacters());
   }, [dispatch]);
 
   return (
     <div id="charactersMainPage" className="container mx-auto my-1 md:my-5">
-      <div className="flex justify-center">
+      <div className="flex justify-between items-center mx-[7rem] my-4">
         <h2
           className="relative 
         font-bold
@@ -52,11 +51,18 @@ const CharactersMainPage = () => {
         >
           CHARACTERS LIST
         </h2>
+        <SearchBar placeholder="Find me, Hero!" data={allCharacters} />
       </div>
       <div className="flex flex-row flex-wrap justify-center">
         {allCharacters &&
           allCharacters.map((character, index) => {
-            return <CharactersListItem key={index} characterData={character} />;
+            return (
+              <CharactersListItem
+                key={index}
+                characterData={character}
+                dataType={1}
+              />
+            );
           })}
       </div>
     </div>

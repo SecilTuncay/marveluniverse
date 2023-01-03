@@ -2,19 +2,19 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAsyncComics, getAllComics } from "../../redux/marvel/marvelSlice";
 import ComicsListItem from "./ComicsListItem";
+import SearchBar from "../ui/SearchBar";
 
 const ComicsMainPage = () => {
   const allComics = useSelector(getAllComics);
   const dispatch = useDispatch();
 
-  console.log(allComics);
   useEffect(() => {
     dispatch(fetchAsyncComics());
   }, [dispatch]);
 
   return (
     <div id="comicsMainPage" className="container mx-auto my-1 md:my-5">
-      <div className="flex justify-center">
+      <div className="flex justify-between items-center mx-[7rem] my-4">
         <h2
           className="relative 
         font-bold
@@ -48,6 +48,7 @@ const ComicsMainPage = () => {
         >
           COMICS LIST
         </h2>
+        <SearchBar placeholder="Read me, Hero!" data={allComics} dataType={0} />
       </div>
       <div className="flex flex-row flex-wrap justify-center">
         {allComics &&

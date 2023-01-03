@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const GalleryItem = (props) => {
   const { characterData } = props;
@@ -9,10 +10,11 @@ const GalleryItem = (props) => {
 
   const imagePath = thumbnail.path + "." + thumbnail.extension;
   return (
-    <div
+    <Link
+      href={`/characters/${id}`}
       key={id}
       id="galleryItem"
-      className="shadow-[0_7px_7px_0_rgba(117,112,112,0.65)] w-[12rem] m-2 flex flex-col overflow-hidden relative cornered bg-secondary text-white"
+      className="cursor-pointer shadow-[0_7px_7px_0_rgba(117,112,112,0.65)] w-[12rem] m-2 flex flex-col overflow-hidden relative cornered bg-secondary text-white"
     >
       <div className="relative w-full h-2/3 border-b-4 border-primary ">
         <Image src={imagePath} alt={name} layout="fill" objectFit="cover" />
@@ -23,7 +25,7 @@ const GalleryItem = (props) => {
         </div>
         <div className="text-[1rem] text-xs p-2">2022</div>
       </div>
-    </div>
+    </Link>
   );
 };
 

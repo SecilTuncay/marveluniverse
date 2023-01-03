@@ -104,7 +104,9 @@ const CharactersDetailPage = ({ charactersID }) => {
                     return (
                       <Link
                         className="block my-2 bg-white bg-opacity-25 p-2 hover:border-l-4 hover:border-primary"
-                        href={comic.resourceURI}
+                        href={`/comics/${
+                          comic.resourceURI.split("comics/")[1]
+                        }`}
                         key={index}
                       >
                         {comic.name}

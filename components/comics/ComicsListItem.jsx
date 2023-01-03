@@ -22,7 +22,6 @@ const ComicsListItem = (props) => {
     urls,
     variants,
   } = comicsData;
-  console.log("file: ComicsListItem.jsx:25 - comicsData", comicsData);
 
   const imagePath = thumbnail.path + "." + thumbnail.extension;
 

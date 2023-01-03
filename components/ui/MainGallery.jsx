@@ -11,7 +11,6 @@ const MainGallery = () => {
   const allCharacters = useSelector(getAllCharacters);
   const dispatch = useDispatch();
 
-  console.log(allCharacters);
   useEffect(() => {
     dispatch(fetchAsyncCharacters());
   }, [dispatch]);

@@ -3,8 +3,6 @@ import Image from "next/image";
 
 const DetailGalleryItem = (props) => {
   const { characterData } = props;
-  console.log("file: DetailGalleryItem.jsx:6 - characterData", characterData);
-
   const { name, resourceURI } = characterData;
 
   return (
