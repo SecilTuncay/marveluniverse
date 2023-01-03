@@ -15,7 +15,7 @@ const MainGallery = () => {
     dispatch(fetchAsyncCharacters());
   }, [dispatch]);
   return (
-    <div id="mainGallery" className="container mx-auto mt-2">
+    <div id="mainGallery" className="container mx-auto  mt-2">
       <div
         className="bg-gray-300
         shadow-2xl 
@@ -25,7 +25,8 @@ const MainGallery = () => {
         h-[25rem] 
         overflow-y-scroll 
         flex items-center 
-        px-2"
+        px-2
+        mx-8"
       >
         <div className="h-[22rem] flex py-1">
           {allCharacters &&
