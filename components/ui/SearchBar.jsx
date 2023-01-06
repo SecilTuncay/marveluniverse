@@ -37,7 +37,7 @@ const SearchBar = ({ placeholder, data, dataType }) => {
     setWordEntered("");
   };
   return (
-    <div className="rounded-3xl px-2 bg-slate-50 relative w-[15rem] -mt-[0.25rem]">
+    <div className="rounded-3xl px-2 bg-slate-50 relative w-10/12 md:w-[15rem] -mt-[0.25rem]">
       <div className="flex items-center justify-between p-1">
         <input
           type="text"

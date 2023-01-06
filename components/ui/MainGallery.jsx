@@ -24,7 +24,7 @@ const MainGallery = () => {
         leading-[1.75rem] 
         mt-4 mb-4
         text-white
-
+        md:block hidden
         before:content-[''] 
         before:bg-primary 
         before:block 

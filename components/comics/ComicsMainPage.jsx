@@ -14,7 +14,7 @@ const ComicsMainPage = () => {
 
   return (
     <div id="comicsMainPage" className="container mx-auto my-1 md:my-5">
-      <div className="flex justify-between items-center mx-[4.5rem] my-4">
+      <div className="flex flex-col md:flex-row justify-between items-center md:mx-[4.5rem] my-4">
         <h2
           className="relative 
         font-bold
