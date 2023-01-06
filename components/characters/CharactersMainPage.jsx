@@ -17,13 +17,14 @@ const CharactersMainPage = () => {
 
   return (
     <div id="charactersMainPage" className="container mx-auto my-1 md:my-5">
-      <div className="flex justify-between items-center mx-[7rem] my-4">
+      <div className="flex justify-between items-center mx-[4.5rem] my-4">
         <h2
           className="relative 
         font-bold
         md:text-[1.30rem] text-[1rem]
         leading-[1.75rem] 
         mt-4 mb-4
+        text-white
 
         before:content-[''] 
         before:bg-primary 

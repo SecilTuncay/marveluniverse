@@ -37,7 +37,10 @@ const ComicsDetailPage = ({ comicsID }) => {
 
   return (
     <>
-      <div className="container mx-auto my-5" id="comicsDetailPage">
+      <div
+        className="container mx-auto my-5 text-white w-11/12"
+        id="comicsDetailPage"
+      >
         <button
           onClick={() => {
             router.back();
@@ -67,13 +70,11 @@ const ComicsDetailPage = ({ comicsID }) => {
                 </Link>
               </div>
               <div className="my-4 font-[500] text-lg flex items-center gap-2">
-                <span className="text-secondary mr-1 font-bold">
-                  Total Pages :
-                </span>
+                <span className="mr-1 font-bold">Total Pages :</span>
 
                 <div className="text-white flex flex-col items-center">
-                  <p className="rounded-full bg-secondary w-14 h-14 flex justify-center items-center">
-                    <span className="border-green-400 border-2 w-11 h-11 rounded-full block leading-[2.5rem] text-center text-xl">
+                  <p className="rounded-full bg-secondary w-12 h-12 flex justify-center items-center">
+                    <span className="border-green-400 border-2 w-10 h-10 rounded-full block leading-9 text-center text-md font-bold">
                       {pageCount}
                     </span>
                   </p>

@@ -40,7 +40,10 @@ const CharactersDetailPage = ({ charactersID }) => {
 
   return (
     <>
-      <div className="container mx-auto my-5" id="charactersDetailPage">
+      <div
+        className="container mx-auto my-5 text-white w-11/12"
+        id="charactersDetailPage"
+      >
         <button
           onClick={() => {
             router.back();
@@ -69,16 +72,13 @@ const CharactersDetailPage = ({ charactersID }) => {
                 </Link>
               </div>
 
-              <div className="flex justify-start items-center gap-4 my-4">
+              <div className="flex justify-start items-center gap-4 my-4 ">
                 {charactersItemsInfo.map((item) => {
                   return (
-                    <div
-                      key={item.id}
-                      className="text-white flex flex-col items-center"
-                    >
-                      <p className="mb-1 text-secondary">{item.title}</p>
+                    <div key={item.id} className=" flex flex-col items-center">
+                      <p className="mb-1">{item.title}</p>
                       <p className="rounded-full bg-secondary w-12 h-12 flex justify-center items-center">
-                        <span className="border-green-400 border-2 w-9 h-9 rounded-full block leading-8 text-center text-xl">
+                        <span className="border-green-400 border-2 w-10 h-10 rounded-full block leading-9 text-center text-md">
                           {item.number}
                         </span>
                       </p>
