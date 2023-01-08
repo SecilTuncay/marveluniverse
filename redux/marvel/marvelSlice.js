@@ -11,7 +11,7 @@ export const fetchAsyncCharacters = createAsyncThunk(
   "marvel/fetchAsyncCharacters",
   async () => {
     const response = await marvelDatabaseAPI.get(
-      `public/characters?ts=${ts}&orderBy=name&limit=20&apikey=${PUBLIC_KEY}&hash=${marvelHash}`,
+      `public/characters?ts=${ts}&orderBy=name&limit=50&apikey=${PUBLIC_KEY}&hash=${marvelHash}`,
       { crossdomain: true }
     );
     return response.data;
@@ -31,7 +31,7 @@ export const fetchAsyncComics = createAsyncThunk(
   "marvel/fetchAsyncComics",
   async () => {
     const response = await marvelDatabaseAPI.get(
-      `public/comics?ts=${ts}&apikey=${PUBLIC_KEY}&hash=${marvelHash}`,
+      `public/comics?ts=${ts}&limit=30&apikey=${PUBLIC_KEY}&hash=${marvelHash}`,
       { crossdomain: true }
     );
     return response.data;
@@ -61,45 +61,45 @@ const marvelSlice = createSlice({
   extraReducers: {
     /*Fetch Characters start*/
     [fetchAsyncCharacters.pending]: () => {
-      console.log("Pending");
+      // console.log("Pending");
     },
     [fetchAsyncCharacters.fulfilled]: (state, { payload }) => {
       return { ...state, characters: payload.data.results };
     },
     [fetchAsyncCharacters.rejected]: () => {
-      console.log("Rejected!");
+      //console.log("Rejected!");
     },
     /*Fetch Character with ID start*/
     [fetchAsyncCharacter.pending]: () => {
-      console.log("Pending");
+      //console.log("Pending");
     },
     [fetchAsyncCharacter.fulfilled]: (state, { payload }) => {
       return { ...state, selectedCharacter: payload.data.results };
     },
     [fetchAsyncCharacter.rejected]: () => {
-      console.log("Rejected!");
+      //console.log("Rejected!");
     },
     /*end*/
     /*Fetch Comics start*/
     [fetchAsyncComics.pending]: () => {
-      console.log("Pending");
+      //console.log("Pending");
     },
     [fetchAsyncComics.fulfilled]: (state, { payload }) => {
       return { ...state, comics: payload.data.results };
     },
     [fetchAsyncComics.rejected]: () => {
-      console.log("Rejected!");
+      //console.log("Rejected!");
     },
     /*end*/
     /*Fetch Comics with ID start*/
     [fetchAsyncComic.pending]: () => {
-      console.log("Pending");
+      //console.log("Pending");
     },
     [fetchAsyncComic.fulfilled]: (state, { payload }) => {
       return { ...state, selectedComic: payload.data.results };
     },
     [fetchAsyncComic.rejected]: () => {
-      console.log("Rejected!");
+      //console.log("Rejected!");
     },
     /*end*/
   },

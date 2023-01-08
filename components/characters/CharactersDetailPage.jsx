@@ -64,7 +64,7 @@ const CharactersDetailPage = ({ charactersID }) => {
                 className="rounded-3xl shadow-2xl"
               />
             </div>
-            <div className="w-full p-5 h-[30rem]">
+            <div className="w-full p-5 min-h-[30rem]">
               <div className="flex mb-3 font-extrabold text-3xl leading-[1.75rem] gap-1">
                 <p>{name}</p>/<p>{new Date(modified).getFullYear()}</p>
                 <Link href={urls[0].url} target="_blank">

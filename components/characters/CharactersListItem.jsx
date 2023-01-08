@@ -15,10 +15,10 @@ const CharactersListItem = (props) => {
       <Link href={`/characters/${id}`}>
         <div
           key={id}
-          className="shadow-lg md:h-[22rem] md:w-[12rem] mx-4 h-[25rem] w-[15rem] bg-secondary hover:bg-primary transition-all m-2 relative overflow-hidden cornered"
+          className="shadow-lg md:h-[22rem] md:w-[12rem] mx-4 h-[30rem] w-[20rem] bg-secondary hover:bg-primary transition-all m-2 relative overflow-hidden cornered"
           id="charactersListItem"
         >
-          <div className="relative w-full h-2/3 border-b-4 border-primary overflow-hidden">
+          <div className="relative  md:w-[13rem] md:h-[15rem] w-full h-[25rem] border-b-4 border-primary overflow-hidden">
             <Image
               src={imagePath}
               alt={name}
@@ -32,7 +32,7 @@ const CharactersListItem = (props) => {
               <div className="font-bold text-[1rem] h-[2.5rem] mb-4">
                 {name}
               </div>
-              <p className="text-xs max-h-[2rem] overflow-hidden">
+              <p className="text-xs max-h-[2rem] overflow-hidden hidden md:block">
                 {description}
               </p>
             </div>

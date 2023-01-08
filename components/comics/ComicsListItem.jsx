@@ -30,10 +30,10 @@ const ComicsListItem = (props) => {
       <Link href={`/comics/${id}`}>
         <div
           key={id}
-          className="shadow-lg md:h-[22rem] md:w-[12rem] mx-4 h-[25rem] w-[15rem] bg-secondary hover:bg-primary transition-all m-2 relative overflow-hidden cornered"
+          className="shadow-lg md:h-[22rem] md:w-[12rem] mx-4 h-[30rem] w-[20rem] bg-secondary hover:bg-primary transition-all m-2 relative overflow-hidden cornered"
           id="comicsListItem"
         >
-          <div className="relative w-full h-2/3 border-b-4 border-primary overflow-hidden">
+          <div className="relative md:w-[13rem] md:h-[15rem] w-full h-[25rem] border-b-4 border-primary overflow-hidden">
             <Image
               src={imagePath}
               alt={title}
