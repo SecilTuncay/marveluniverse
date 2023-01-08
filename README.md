@@ -1,4 +1,6 @@
-React JS | Redux | NextJS | Tailwind project.
+React JS | Redux | NextJS | Tailwind project.!
+[marvelmain](https://user-images.githubusercontent.com/32872209/211185148-1d21d23f-d4ff-483c-8237-c84957766742.png)
+
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
