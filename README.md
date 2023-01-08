@@ -1,6 +1,7 @@
-React JS | Redux | NextJS | Tailwind project.!
-[marvelmain](https://user-images.githubusercontent.com/32872209/211185148-1d21d23f-d4ff-483c-8237-c84957766742.png)
-
+React JS | Redux | NextJS | Tailwind project.
+![marvelmain](https://user-images.githubusercontent.com/32872209/211185148-1d21d23f-d4ff-483c-8237-c84957766742.png)
+![charactersmain](https://user-images.githubusercontent.com/32872209/211185201-80e4caf3-31f8-4f75-bc44-238605d2c500.png)
+![comicsdetail](https://user-images.githubusercontent.com/32872209/211185208-db77a116-743b-4edf-ac7a-61dda46fac9e.png)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
